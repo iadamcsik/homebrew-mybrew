@@ -37,7 +37,6 @@ class ThriftAT0931 < Formula
 
     ENV.cxx11 if ENV.compiler == :clang
 
-    inreplace "configure", /^am__api_version=[0-9.']+$/, "am__api_version='1.16'"
     build_dir = buildpath.parent/"build"
     build_dir.mkdir
     cd build_dir
@@ -50,10 +49,6 @@ class ThriftAT0931 < Formula
                     "-DCMAKE_INSTALL_PREFIX=#{prefix}",
                     *args
     system "make", "install"
-#    raise 'baj van'
-#    system "make", "check"
-#    system "make", "cross"
-#    system "make", "dist"
   end
 
   test do
